@@ -1,0 +1,166 @@
+import os
+
+def clear():
+	# Check if Operating System is Mac and Linux or Windows.
+   if os.name == 'posix':
+      _ = os.system('clear')
+   else:
+      # Else Operating System is Windows (os.name = nt).
+      _ = os.system('cls')
+import time
+
+# Variables:
+health = 60
+quit = True
+escape = True
+
+# Welcome:
+print("Welcome, user, to The Legend of Zelda: Tower Escape DLC. This tower will either be a memorable moment...or your end.\nYour job is to escape the tower without dying.\n\nMake the right choices.\nThe decisions are yours; good luck.")
+print(f"\nCurrent health: {health}...")
+time.sleep(2)
+
+input("Press any key to begin: ")
+clear()
+
+while quit and health > 0:
+  print("""You wake up to the foul smell of rotting bones and the feel of spiders and cobwebs. You quickly get up and dust yourself off...
+    
+  You see a ladder guarded by some zombie skeletons, and a staircase leading upstairs. Do you...
+  
+  1: Take your chances with the skeletons using a nearby spear, to use the ladder
+  2: Make a break for the stairs
+  3: Quit game
+  Your choice (choose a number): """)
+  while True:
+    first_level = input("").strip()
+    if first_level == '1':
+      print("You sparred with the skeletons and got to the next level, at the cost of some major wounds. You've lost 20 HP. You can go to the next level.")
+      health -= 20
+      print(f"Current health: {health} HP")
+      time.sleep(5)
+      clear()
+      print("Approaching level 2...")
+      time.sleep(3)
+      clear()
+      break
+    elif first_level == '2':
+      print("You ran up the stairs before the guards knew it. You've made it to the next level.")
+      print(f"Current health: {health} HP")
+      time.sleep(5)
+      clear()
+      print("Approaching level 2...")
+      time.sleep(3)
+      clear()
+      break
+    elif first_level == '3':
+      quit = False
+      break  
+    else:
+      print(f"It seems that {first_level} is either a letter or a number that is not among the options. Please try again. ")
+      continue
+  if not quit: 
+    break
+  while True:  
+    print("""\n\nOn the second level, you find a couple of bokoblins having a nap. They have some really sharp swords. You also find a rope that seems to stay strong when you tug on it. Do you...
+  
+  1: Quietly use the rope to get to the next level
+  2: Use your half-durable spear to eliminate the bokoblins and get an upgraded weapon
+  3: Quit game
+  Your choice (choose a number): """)
+    second_level = input("").strip()
+    if second_level == '1':
+      print("You tried climbing the rope, but as you did, the bokoblins heard you and woke up to fight you. After warding them off, you had lost 20 HP. You can progress to the next floor.")
+      health -= 20
+      print(f"Current health: {health} HP")
+      time.sleep(5)
+      clear()
+      print("Approaching level 3...")
+      time.sleep(3)
+      clear()
+      break
+    elif second_level == '2':
+      print("You sneak attacked the bokoblins, defeated them, and upgraded your weapon. You've made it to the next level.")
+      print(f"Current health: {health} HP")
+      time.sleep(5)
+      clear()
+      print("Approaching level 3...")
+      time.sleep(3)
+      clear()
+      break
+    elif second_level == '3':
+      quit = False
+      break
+    else:
+      print(f"It seems that {second_level} is either a letter or a number that is not among the options. Please try again. ")
+      continue
+
+  if not quit: 
+      break
+  
+  while True:
+    print("""\n\nOn the third, you find yourself in an arena with a lynel (horse-monster of destruction) on the other side. He's rushing towards you, and reaches the half-way point within a blink of an eye. You quickly take note of a volcanic sword on one side of you and a loaded crossbow on the other. Do you...
+  
+  1: Quickly take the crossbow and fire it at the lynel
+  2: Grab the sword and charge an attack to defeat the lynel
+  3: Quit game
+  Your choice (choose a number): """)
+    third_level = input("").strip()
+    if third_level == '1':
+        print("You grab the crossbow and fire it in between the lynel's eyes. It runs right past you and collapses moments later. You progress to the next level.")
+        print(f"Current health: {health} HP")
+        time.sleep(5)
+        clear()
+        print("Approaching level 4...")
+        time.sleep(3)
+        clear()
+        break
+    elif third_level == '2':
+        print("You tried loading up an attack for the lynel, but as you did, it was already too late. The lynel inputted a large gash in your chest and shoulder and headbutted you onto the floor. You struggle to get the crossbow and shoot at him, defeating him once and for all. You lost 40 HP.")
+        health -= 40
+        print(f"Current health: {health} HP")
+        if health <= 0:
+          print("You died.")
+          quit = False
+          break
+        else:
+          print(f"Current health: {health} HP")
+          print("Approaching level 4...")
+          break
+    elif third_level == '3':
+      quit = False
+      break
+    else:
+      print(f"It seems that {third_level} is either a letter or a number that is not among the options. Please try again. ")
+      continue
+
+      
+  if not quit: 
+    break
+  
+  while True:
+    print("""Congratulations, you have reached the roof of the tower. You find yourself in the mountains of Akala, surrounded by ice and snow. You feel yourself gaining hypothermia quickly. It's almost too much to bear! You find a fire and some dry wooly clothes, but you also see a lizalfo trying to break the ladder that goes down the building -- to your freedom. Do you...
+  
+  1: Quickly do a jump kick and knock the lizalfo off the building, so you can use the ladder to escape
+  2: Sit near the campfire, put on some warm clothes, and figure out a new way to escape
+  3: Quit game
+  Your choice (choose a number): """)
+    final_level = input("").strip()
+    if final_level == '1':
+        print("While on the brink of freezing, you make a quick decision to defeat the lizalfo and ensure your freedom. Below, you find your friend, Link, who gives you some warm clothes and helps you get out of this place. Congrats again player, you've gotten the good ending.")
+        print(f"Current health: {health} HP")
+        quit = False
+        break
+    elif final_level == '2':
+        print("You took immediate comfort over your freedom. After the lizalfo finished breaking the ladder, it saw you and tried fighting you. You won that fight, and many others, but at the cost of your only hope. You look around for another escape, and there is none. Sorry player, but you have reached the 'trapped' ending.")
+        print(f"Current health: {health} HP")
+        quit = False
+        break
+    elif final_level == '3':
+      quit = False
+      break
+    else:
+      print(f"It seems that {final_level} is either a letter or a number that is not among the options. Please try again. ")
+      continue
+
+  if not quit: 
+      break
