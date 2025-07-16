@@ -1,0 +1,175 @@
+# Date: 2025-01-12
+# Author: M Abdallah Binjaffar
+# Description: An online pizza-ordering program for Pizza Perfection, a pizza parlour, that allows the user to pick their sizing and topings for a pizza and place their order. The program will print a receipt based on the user's order.
+
+def name_collection(ordered_name):
+  while True:
+    user_name = input(f"Please type your {ordered_name} name.\n").strip().title()
+    if user_name.isnumeric() or user_name == "":
+      print("It seems that you typed in a number or a whitespace, please try again.")
+      continue
+    break
+  return user_name
+
+size_repeat = True
+topings_repeat = True
+
+# Size list
+pizza_sizes = [[1, 'Small', 12.99], [2, 'Medium', 14.99], [3, 'Large', 18.99], [4, 'Party', 22.99]]
+
+# Don't need a list to put chosen sizes in since user can only choose one. Is needed for topings though, as the user will likely select more than one.
+
+# Toping lists
+topings = [[1, "Anchovies"], [2, "Pepperoni"], [3, "Sardines"], [4, "Tomato slices"], [5, "Pineapple chunks"], [6, "Green Thai Chillies"], [7, "Chicken"], [8, "Ground beef"], [9, "Onions"], [10, "Assorted bell pepper slices"]]
+
+topings_validated_inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+
+user_topings = []
+
+# Counter variables
+count_toping_list = 0
+count_toping_selection = 1
+count_fortopings = 0
+
+# Bill list
+bill_subtotal = []
+  
+
+# Welcome message 
+print("Welcome to Pizza Perfection, user! This location in Ajax, Ontario, is using this program as a beta release, so you can try it out by ordering some fresh pizza!")
+
+# Promotional message
+print("""
+~~~~~~
+*For a limited time only, you may get the first three topings on your pizza for FREE! *
+Note: This promotion comes with buying only one pizza, small, medium, or large, per customer. The 4th and more topings are $0.50 each.
+~~~~~~""")
+
+# Customer Info collection
+print("Welcome User! To begin, I will need you to type in your names and email.")
+
+# Using name_collection function to collect first and last names of user
+first_name = name_collection("first")
+last_name = name_collection("last")
+
+# Collecting email address
+while True:
+    given_email = input(f"Please type your email address.\n").strip().title()
+    if "@" in given_email:
+      print("Great job! Let's move onto the last piece of information.")
+      break
+    else:
+      print("It seems like you forgot an @ or entered a whitespace in your statement. Please try again.")
+
+# Collecting phone number
+while True:
+    given_phone_number = input("""Please type your phone number, *without*: 
+    -the country code (which is a +1 at the start of the number, for Canadians) or 
+    -any dashes in between characters, or
+    -any letters
+    
+    ~If done correctly, you will have exactly 10 numerical digits entered:
+""").strip().title()
+    if not("-" in given_phone_number) and len(given_phone_number) == 10 and given_phone_number.isnumeric():
+      print("Great job! Let's move on.")
+      break
+    else:
+      print("It seems like you typed in a dash/hyphen, typed in the country code, or typed in more/less than 10 digits. Please try again.")
+
+# Pizza Sizes
+while size_repeat:
+  print("""Below are our 4 different sizes of pizza. Please select one for your pizza by selecting the number beside your desired sizing:
+  ~~~~~~~~~~~~~~~~~~~~~""")
+  for num,size,price in pizza_sizes:
+    print(f"{num}: {size} | {price}")
+  print("~~~~~~~~~~~~~~~~~~~~~")
+  while True:
+    chosen_size = input().strip()
+    if chosen_size == "1" or chosen_size == "2" or chosen_size == "3" or chosen_size == "4":
+      size_repeat = False
+      bill_subtotal.append(pizza_sizes[int(chosen_size) - 1][-1])
+      size_price = pizza_sizes[int(chosen_size) - 1][-1]
+      chosen_size = pizza_sizes[int(chosen_size) - 1][1]
+      print("Now let's move onto some topings!")
+      size_repeat = False
+      break
+    else:
+      print("It seems like you typed a number not among the options, or typed in a negative number or letter. Please try again.") 
+      size_repeat = False
+while topings_repeat:
+  print("""Below is a list of our topings, feel free to make your selections using the corresponding digits!
+  You may move on in the process at any time by typing 'q'
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~""")
+  for toping_number,toping in topings:
+    print(f"{toping_number}: {toping}")
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  while True:
+    chosen_topings = input(f"Toping #{count_toping_selection}: ").strip().lower()
+    if chosen_topings in topings_validated_inputs:
+      topings_repeat = False
+      count_toping_selection += 1
+      user_topings.append(topings[int(chosen_topings) - 1][-1])
+      for item in user_topings:
+        print(f"\t- {item}")
+      if count_toping_selection == 4: 
+        # count_toping_selection must be checked as 4 because it needs to start = 1.
+        print("NOTE: Every additional toping you order on your pizza will cost $0.50 per toping. If you do not want any more topings, type 'q' to move on.")
+      elif count_toping_selection > 4:
+        bill_subtotal.append(0.5)
+    elif chosen_topings == "q":
+      break
+    else:
+      print("It seems like you typed a number not among the options or a negative number or a letter. Please try again.")
+while True:
+  delivery_input = input("""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+For just an additional $10.00, you can get your pizza delivered to you!
+
+Note: This option is only for customers within a 20 kilometre distance of the parlour's location, at L2S 9D1 in Ajax, Ontario.
+
+If you are applicable for this offer, and would like delivery, please type 'Y'. If you do not want delivery, please type 'N'
+
+--If you don't get your pizza delivered to you within 30 minutes, your get 25% off on your order!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type 'Y' or 'N': """).strip().upper()
+  if delivery_input == 'Y':
+    bill_subtotal.append(10)
+    delivery_cost = "$10.00"
+    break
+  elif delivery_input == 'N':
+    delivery_cost = "$0.00"
+    break
+  else:
+    print("It seems that you typed in a number, or a letter not among the options. Please try again.")
+    
+subtotal = float(f"{sum(bill_subtotal):.2f}")
+print(f"""Order summary and receipt:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pizza Perfection, Ajax, Ontario
+L2S 9D1
+- Size
+\t-{chosen_size} | {size_price}
+- Topings""")
+for item in user_topings:
+  count_fortopings += 1
+  if count_fortopings <= 3:
+    print(f"\t- {count_fortopings}: {item}")
+  else:
+    print(f"\t- {count_fortopings}: {item} | $0.50")
+print(f"""
+- Delivery Cost
+\t-{delivery_cost}
+-----------------------
+- Subtotal
+\t- ${subtotal}
+- Total (After tax)
+\t- ${(subtotal * 1.13):.2f}""")
+while True:
+  order_confirmation = input("Is this order accurate? Please type 'Y' to confirm or 'N' to quit: ").strip().upper()
+  if order_confirmation == 'Y':
+    print("Thank you for ordering with Pizza Perfection! Your order will take 30 minutes to get ready.")
+  elif order_confirmation == 'N':
+    print("Sorry! Let's try this again.")
+    break
+    
