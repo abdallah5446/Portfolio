@@ -5,8 +5,8 @@ Enjoy!
 Python Game:<br />
 -Built a text-based adventure game in Python, inspired by The Legend of Zelda series, immersing the player in a dungeon-crawling escape scenario. ⚔️<br />
 -Included input validation to handle user misentries gracefully without breaking the game experience. <br />
--Managed player health and conditional game flow to allow for dynamic difficulty, where poor decisions lead to progressive health loss and game over scenarios. <br />
--Programming accounts for the different end-user decisions, including non-hard coded death and quit ("while quit and health > 0"). <br /><br />
+-Used the "os" and "time" libraries to create cross-platform screen clearing and dramatic timing effects, simulating smooth in-game transitions <br />
+-Designed the game using while loops (while True and while quit and health > 0) to manage flow control and branching narrative logic. <br /><br />
 
 Python Pizza Ordering System:<br />
 -Developed an interactive console-based pizza ordering system using Python, simulating a real-world point-of-sale experience for a fictional pizza parlour, Pizza Perfection.<br />
