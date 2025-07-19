@@ -166,10 +166,12 @@ print(f"""
 - Total (After tax)
 \t- ${(subtotal * 1.13):.2f}""")
 while True:
-  order_confirmation = input("Is this order accurate? Please type 'Y' to confirm or 'N' to quit: ").strip().upper()
-  if order_confirmation == 'Y':
-    print("Thank you for ordering with Pizza Perfection! Your order will take 30 minutes to get ready.")
-  elif order_confirmation == 'N':
-    print("Sorry! Let's try this again.")
-    break
-    
+    order_confirmation = input("Is this order accurate? Please type 'Y' to confirm or 'N' to quit: ").strip().upper()
+    if order_confirmation == 'Y':
+        print("Thank you for ordering with Pizza Perfection! Your order will take 30 minutes to get ready.")
+        break
+    elif order_confirmation == 'N':
+        print("Sorry! Let's try this again.")
+        break
+    else:
+        print("Invalid choice.")
