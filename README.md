@@ -1,10 +1,11 @@
 Welcome to my portfolio! 💻 🎉 <br /><br />
-Here, you will find some of my work in python, including some logic-focused programs, and especially a video game (150+ lines) I created using functions and conditional logic. 
+Here, you will find some of my work in python, including some logic-focused programs, and especially a video game (150+ lines) I created using functions, various loops, and conditional logic. 
 Enjoy!
 
 Python Game:<br />
--Using functions like clear() and importing python libraries like time and os, created a smooth-running game with references to the Legend of Zelda game series to immerse the gamer. ⚔️<br />
--Used while loops (while true + while var). <br />
+-Built a text-based adventure game in Python, inspired by The Legend of Zelda series, immersing the player in a dungeon-crawling escape scenario. ⚔️<br />
+-Included input validation to handle user misentries gracefully without breaking the game experience. <br />
+-Managed player health and conditional game flow to allow for dynamic difficulty, where poor decisions lead to progressive health loss and game over scenarios. <br />
 -Programming accounts for the different end-user decisions, including non-hard coded death and quit ("while quit and health > 0"). <br /><br />
 
 Python Pizza Ordering System:<br />
