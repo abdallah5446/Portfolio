@@ -1,5 +1,5 @@
 Welcome to my portfolio! 💻 🎉 <br /><br />
-Here, you will find some of my work in python, including some logic-focused programs, and especially a video game (150+ lines) I created using functional and conditional logic. 
+Here, you will find some of my work in python, including some logic-focused programs, and especially a video game (150+ lines) I created using functions and conditional logic. 
 Enjoy!
 
 Python Game:<br />
