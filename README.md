@@ -6,10 +6,11 @@ Python Game:<br />
 -Using functions like clear() and importing python libraries like time and os, created a smooth-running game with references to the Legend of Zelda game series to immerse the gamer. ⚔️<br />
 -Used while loops (while true + while var). <br />
 -Programming accounts for the different end-user decisions, including non-hard coded death and quit ("while quit and health > 0"). <br /><br />
-Please try it out on any python IDE.
 
 Python Pizza Ordering System:<br />
--Utilizing functions<br />
--Used while loops (while true + while var). ➰<br />
--Programming accounts for the different end-user decisions, including non-hard coded death and quit ("while quit and health > 0"). 🖱️<br /><br />
-Please try it out on any python IDE.
+-Developed an interactive console-based pizza ordering system using Python, simulating a real-world point-of-sale experience for a fictional pizza parlour, Pizza Perfection.<br />
+-Created a real-time receipt summary that updates based on the user’s selections, with visual formatting and itemized costing (e.g. toppings 4+ billed at $0.50). <br />
+-Designed the code for expandability and future enhancements, such as file saving, multiple pizza orders, or a GUI/web version.<br /><br />
+
+
+Please try my work out on any python IDE.
