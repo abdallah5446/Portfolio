@@ -3,7 +3,7 @@ Here, you will find some of my work in python, including some logic-focused prog
 Enjoy!
 
 Python Game:<br />
--Built a text-based adventure game in Python, inspired by The Legend of Zelda series, immersing the player in a dungeon-crawling escape scenario. ⚔️<br />
+-Built a text-based adventure game in Python, inspired by The Legend of Zelda series, immersing the player in a dungeon-crawling escape scenario. <br />
 -Included input validation to handle user misentries gracefully without breaking the game experience. <br />
 -Used the "os" and "time" libraries to create cross-platform screen clearing and dramatic timing effects, simulating smooth in-game transitions <br />
 -Designed the game using while loops (while True and while quit and health > 0) to manage flow control and branching narrative logic. <br /><br />
